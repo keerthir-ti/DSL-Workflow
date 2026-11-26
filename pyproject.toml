@@ -1,0 +1,23 @@
+[project]
+name = "dsl-workflow-replay-poc"
+version = "0.1.0"
+description = "Replay safety of a graph-driven (DSL) Temporal workflow: proof of concept"
+requires-python = ">=3.10"
+dependencies = ["temporalio==1.35.0"]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.4", "pytest-asyncio==0.24.0"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dsl", "reference", "variants"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+testpaths = ["tests"]
+pythonpath = ["."]
+log_level = "WARNING"
